@@ -1,0 +1,8 @@
+#[http]
+#	proxy = http://255.255.255.255:8080
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	k = log --graph --decorate --pretty=oneline --abbrev-commit
+	tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
