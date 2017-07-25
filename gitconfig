@@ -2,7 +2,18 @@
 #	proxy = http://255.255.255.255:8080
 [color]
 	ui = auto
+[merge]
+	tool = kdiff3
+[mergetool]
+	keepBackup = false
+[diff]
+	tool = kdiff3
+	guitool = kdiff3
+[push]
+	default = nothing
 [alias]
 	co = checkout
 	k = log --graph --decorate --pretty=oneline --abbrev-commit
 	tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
+    stu = status --untracked=no
+    sf = submodule foreach
