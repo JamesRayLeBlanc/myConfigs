@@ -1,0 +1,98 @@
+####################  Section Start  ###########################################
+Cloning a repo:
+    git clone <repo_URL_or_ssh_style_dir> <optional_name>
+    Examples:
+        git clone James.LeBlanc@glados:/work/git_repos/new_work_thing SAD
+            This will ssh to a computer named glados as user James.LeBlanc and clone the new_work_thing git repo to a directory named SAD
+        git clone https://github.com/JamesRayLeBlanc/myConfigs.git
+            This will go to URL, clone that repo, and name the local filesystem directory myConfigs (same name as repo is default)
+
+First time checking out a branch (creating local branch from existing remote branch)
+    git checkout -t <NAME_FROM_GIT_BRANCH_-a>
+    Examples:
+        git checkout -t remotes/origin/Plotting    (assumes remote branch named Plotting)
+            This will create a local branch named Plotting and checkout to that branch.
+            It will also automatically set the local Plotting branch to track the remote one.
+            ** Note that the remotes/origin/Plotting name was pasted in from the git branch -a command
+
+Fix tracking for branches checked out w/o -t or checked in w/o -u
+    git branch --set-upstream <LOCAL_NAME> <git branch -a name>  ##This is old new one is next
+    git branch --set-upstream-to=<git branch -a name>
+    Examples:
+        git branch --set-upstream-to=remotes/origin/Plotting
+            This will set the current local branch to track the remote branch named Plotting
+
+####################  Section End    ###########################################
+
+
+####################  Section Start  ###########################################
+Feature Branch Creation:
+1.  checkout the branch you are basing it off of
+2.  pull
+3.  create new local branch
+4.  push local branch to remote (if needed)
+
+    git checkout master
+    git pull
+    git checkout -b newFeatureName
+    git push -u origin newFeatureName
+
+** The -u tells it to 'upstream' so tracking of local branch will be set to newly created remote branch.  
+Any amount of work (git add, git commit, etc) can take place between step 3 and 4.
+
+
+
+Merging a feature branch back into stable branch:
+
+1.  checkout feature branch
+2.  pull
+3.  checkout stable branch
+4.  pull
+5.  merge
+
+    git checkout theFeatureBranch
+    git pull
+    git checkout master
+    git pull
+    git merge theFeatureBranch
+
+** For really complex merges... you might merge master into feature 1st and compile and test that new version of feature before
+then doing these sets of steps.
+
+
+Fast 'merge' for lining up commits cleanly when you know not much has happened
+1.  checkout feature branch
+2.  rebase stable branch
+3.  push stable
+
+    git checkout theFeature
+    git rebase master
+    git push master
+
+
+
+Branch Deletion:
+git branch -D <LOCAL_BRANCH_NAME>
+git push origin --delete <git branch -a name>
+
+    Examples:
+        git branch -D Plotting
+        git push origin --delete remotes/origin/Plotting
+
+####################  Section End    ###########################################
+
+
+####################  Section Start  ###########################################
+Tags and stuff:
+
+    git tag NEW_TAG
+       Creates a NEW_TAG at the current commit point.
+
+    git rev-list -n 1 <TAGNAME>
+    Reports the shah ID of the tag 
+    Examples:
+        git rev-list -n 1 SOME_RELEASE_1.0
+            Finds a tag named SOME_RELEASE_1.0 and then prints the shah ID of that tag
+
+####################  Section End    ###########################################
+
