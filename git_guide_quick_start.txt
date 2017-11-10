@@ -94,5 +94,20 @@ Tags and stuff:
         git rev-list -n 1 SOME_RELEASE_1.0
             Finds a tag named SOME_RELEASE_1.0 and then prints the shah ID of that tag
 
+    pushing/pulling tags
+    git push --tags origin <LOCAL_NAME_IF_TRACKING>
+    git fetch --tags
+
+    typical tagging workflow:
+    git fetch --tags
+    git tag My_New_TagName
+    git push --tags origin MyBranch
+
+
+    You *can* checkout to a tag, but be warned that this will put you in a
+    branch-less headless state.
+
+    git checkout SomeTagName
+
 ####################  Section End    ###########################################
 
