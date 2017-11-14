@@ -111,3 +111,11 @@ Tags and stuff:
 
 ####################  Section End    ###########################################
 
+
+
+Edit an existing (local not remote...) commit
+#simple
+git commit --amend
+
+#complex; fix up last n commits
+git rebase -i HEAD~n
