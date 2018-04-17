@@ -116,6 +116,8 @@ cnoremap w!! w !sudo tee > /dev/null %
 "make a new line w/o going into insert mode
 :nnoremap <leader>o o<esc>
 :nnoremap <leader>O O<esc>
+:nnoremap <Enter> o<esc>
+:nnoremap <S-Enter> O<esc>
 
 
 "remap arrow keys (assists mouse scroll wheel)
