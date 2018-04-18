@@ -1,4 +1,5 @@
 ####################  Section Start  ###########################################
+#################### Clone/Tracking  ###########################################
 Cloning a repo:
     git clone <repo_URL_or_ssh_style_dir> <optional_name>
     Examples:
@@ -26,6 +27,7 @@ Fix tracking for branches checked out w/o -t or checked in w/o -u
 
 
 ####################  Section Start  ###########################################
+####################     Branches    ###########################################
 Feature Branch Creation:
 1.  checkout the branch you are basing it off of
 2.  pull
@@ -83,6 +85,7 @@ git push origin --delete <git branch -a name>
 
 
 ####################  Section Start  ###########################################
+####################      Tags       ###########################################
 Tags and stuff:
 
     git tag NEW_TAG
@@ -113,9 +116,35 @@ Tags and stuff:
 
 
 
+####################  Section Start  ###########################################
+####################  Commit Editing ###########################################
 Edit an existing (local not remote...) commit
 #simple
 git commit --amend
 
 #complex; fix up last n commits
 git rebase -i HEAD~n
+
+####################  Section End    ###########################################
+
+
+####################  Section Start  ###########################################
+####################     Bundles     ###########################################
+Creating a bundle
+    git bundle create bundleFileName LocalBranchName
+	     Creates a new git bundle named bundleFileName using the current git repo's LocalBranchName
+		  I usually name my git bundle files something.bundle e.g. RepoName-BranchName-Date.bundle
+
+    After creating the bundle, use whatever copying means necessary to move it to the other server.
+
+	 git remote -v    ##checks existing remotes; if any bundles you might want to remove them
+	 git remote rm bundle   #removes old bundle
+	 git remote add bundle /full/path/to/new/bundleFile         #adds new bundle as potential remote
+	 git remote update                      #updates stuff?
+	 git pull bundle BranchName             #pulls the bundle version of branch into local branch
+	 git push origin BranchName             #pushes local branch (that should now have bundle updates) to original remote
+
+
+####################  Section End    ###########################################
+
+
