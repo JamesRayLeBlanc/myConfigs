@@ -143,8 +143,16 @@ Creating a bundle
 		    USWDSS_B2R3 branch of the local git repo found in the mission-planner directory.
 		    (at least I assume it is local, I always have local and remote sync'd when I'm doing this).
 
-    After creating the bundle, use whatever copying means necessary to move it to the other server.
+	  cd /work/di2e_repos/pim-track-service
+          git bundle create /work/di2e_repos/pim-track-2018DEC11.bundle master
+	    .. Creates a file in the di2e_repos directory named pim-track-2018DEC11.bundle using the
+		    master branch of the local git repo found in the pim-track-service directory.
+		    (at least I assume it is local, I always have local and remote sync'd when I'm doing this).
 
+After creating the bundle, use whatever copying means necessary to move it to the other server.
+
+Using the bundle to merge with existing Repo:
+On the other server run the following commands to update the repo with the git bundle
 	 git remote -v    ##checks existing remotes; if any bundles you might want to remove them
 	 git remote rm bundle   #removes old bundle
 	 git remote add bundle /full/path/to/new/bundleFile         #adds new bundle as potential remote
@@ -152,6 +160,14 @@ Creating a bundle
 	 git pull bundle BranchName             #pulls the bundle version of branch into local branch
 	 git push origin BranchName             #pushes local branch (that should now have bundle updates) to original remote
 
+
+(untested)
+Using the bundle to create new Repo:
+On the other server run the following commands to create a new repo with the git bundle
+	 git clone /full/path/to/new/bundleFile <optional_dir_name>
+         cd <optional_dir_name>   #or cd into whatever directory was created if no dir_name given
+         git status   #should see that your git repo is here now
+         git log
 
 ####################  Section End    ###########################################
 

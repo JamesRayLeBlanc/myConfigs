@@ -37,6 +37,9 @@ set expandtab  "need to find a way to turn this off for .py files
 set nrformats=hex
 syntax on
 
+"Cursor settings I don't fully get
+"set guicursor=n-v-c:block,o:hor50,i-ci:hor15,r-cr:hor30,sm:block,a:blinkon0
+
 :let mapleader = " "  "make the spacebar the map leader
 
 "map increment and decrement operators to something nice and pnemonic
