@@ -120,8 +120,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 :nnoremap <leader>o o<esc>
 :nnoremap <leader>O O<esc>
 :nnoremap <Enter> o<esc>
-:nnoremap <S-Enter> O<esc>
-
+"only works on GVIM... sigh
+":nnoremap <S-Enter> O<esc>
+:nnoremap <leader><Enter> O<esc>
 
 "remap arrow keys (assists mouse scroll wheel)
 :nnoremap <Up> <C-y>
