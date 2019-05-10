@@ -75,11 +75,11 @@ Fast 'merge' for lining up commits cleanly when you know not much has happened
 
 Branch Deletion:
 git branch -D <LOCAL_BRANCH_NAME>
-git push origin --delete <git branch -a name>
+git push origin --delete <REMOTE_BRANCH_NAME>  (leave off remotes/remote_name/ portion of 'git branch -a')
 
     Examples:
         git branch -D Plotting
-        git push origin --delete remotes/origin/Plotting
+        git push origin --delete Plotting
 
 ####################  Section End    ###########################################
 
@@ -106,11 +106,15 @@ Tags and stuff:
     git tag My_New_TagName
     git push --tags origin MyBranch
 
-
     You *can* checkout to a tag, but be warned that this will put you in a
     branch-less headless state.
+    Example:
+        git checkout SomeTagName
 
-    git checkout SomeTagName
+    List all all tags:
+        git tag -l
+        git tag -l | grep name
+
 
 ####################  Section End    ###########################################
 
@@ -172,3 +176,22 @@ On the other server run the following commands to create a new repo with the git
 ####################  Section End    ###########################################
 
 
+####################  Section Start  ###########################################
+####################   Submodules    ###########################################
+Before you can add a repo as a submodule, that repo MUST exist (at least as far as I can tell)
+So step 1 is to create the repo:
+Creating brand new git repo:
+  mkdir repoName
+  cd repoName
+  git init
+  git add files
+  git commit
+
+Adding a submodule
+    git submodule add <REMOTE_LOCATION> <SUB_DIR_PATH>
+      The <REMOTE_LOCATION> can be either a complete URL or an actual directory path (using scp-style)
+        You need to ensure that you have the ability to clone the given repository location.
+      The <SUB_DIR_PATH> is the path it will have AFTER (underneath) the main git repo that you're adding it into.
+    Ex:
+      git submodule add git@mygithost:billboard lib/billboard
+####################  Section End    ###########################################
