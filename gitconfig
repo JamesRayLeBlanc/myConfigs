@@ -17,3 +17,5 @@
 	tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
     stu = status --untracked=no
     sf = submodule foreach
+[credential]
+    helper = store

@@ -194,4 +194,8 @@ Adding a submodule
       The <SUB_DIR_PATH> is the path it will have AFTER (underneath) the main git repo that you're adding it into.
     Ex:
       git submodule add git@mygithost:billboard lib/billboard
+
+
+      cd $RPT
+      git submodule add (paste in copied portion of git remote -v cmd) new_path
 ####################  Section End    ###########################################
