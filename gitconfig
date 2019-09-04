@@ -17,5 +17,7 @@
 	tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
     stu = status --untracked=no
     sf = submodule foreach
+# " $1=repo   ;  $2=pr number  ;  $3=newbranch"
+  pr = "! sh -c 'git fetch $1 refs/pull-requests/$2/from:$3 && git checkout $3' -"
 [credential]
     helper = store
