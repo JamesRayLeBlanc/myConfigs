@@ -1,23 +1,25 @@
 #[http]
-#	proxy = http://255.255.255.255:8080
+#  proxy = http://255.255.255.255:8080
 [color]
-	ui = auto
+  ui = auto
 [merge]
-	tool = kdiff3
+  tool = kdiff3
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [diff]
-	tool = kdiff3
-	guitool = kdiff3
+  tool = kdiff3
+  guitool = kdiff3
 [push]
-	default = nothing
+  default = nothing
 [alias]
-	co = checkout
-	k = log --graph --decorate --pretty=oneline --abbrev-commit
-	tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
-    stu = status --untracked=no
-    sf = submodule foreach
-# " $1=repo   ;  $2=pr number  ;  $3=newbranch"
+  co = checkout
+  k = log --graph --decorate --pretty=oneline --abbrev-commit
+  tracked = for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads
+  stu = status --untracked=no
+  sf = submodule foreach
+# " $1=remote name   ;  $2=pr number  ;  $3=newbranch"
   pr = "! sh -c 'git fetch $1 refs/pull-requests/$2/from:$3 && git checkout $3' -"
+# " $1=remote name   ;  $2=pr number                                                                                                                                                        
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 [credential]
     helper = store
